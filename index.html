@@ -3,667 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Keerthu ❤️</title>
+<title>For Keerthu ❤️</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html{
-  scroll-behavior:smooth;
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
 body{
-  font-family:Arial, sans-serif;
-  background:#0d0614;
-  color:#fff;
-  line-height:1.6;
-  overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 50% 10%,#64164e 0%,#210d2b 38%,#09040d 100%);
+    color:white;
 }
 
-section{
-  min-height:100vh;
-  padding:70px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+#app{
+    width:100%;
+    height:100svh;
+    position:relative;
+    overflow:hidden;
 }
 
-.container{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  text-align:center;
+/* SLIDES */
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:22px;
+    opacity:0;
+    transform:translateX(50px) scale(.97);
+    pointer-events:none;
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.slide.active{
+    opacity:1;
+    transform:translateX(0) scale(1);
+    pointer-events:auto;
+}
+
+.content{
+    width:min(900px,100%);
+    max-height:90svh;
+    overflow-y:auto;
+    text-align:center;
+    padding:10px 5px 80px;
+    scrollbar-width:none;
+}
+
+.content::-webkit-scrollbar{
+    display:none;
+}
+
+/* TEXT */
+
+.eyebrow{
+    color:#ffafd0;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:.75rem;
+    margin-bottom:15px;
 }
 
 h1{
-  font-size:clamp(2.4rem,10vw,5rem);
-  line-height:1.1;
-  margin-bottom:20px;
+    font-size:clamp(2.4rem,10vw,5rem);
+    line-height:1.05;
+    margin-bottom:18px;
+    text-shadow:0 5px 30px #0008;
 }
 
 h2{
-  font-size:clamp(2rem,7vw,3.5rem);
-  margin-bottom:20px;
+    font-size:clamp(1.9rem,7vw,3.5rem);
+    line-height:1.1;
+    margin-bottom:18px;
 }
 
 p{
-  color:#e8dfea;
-  font-size:1.05rem;
-}
-
-button{
-  border:0;
-  padding:15px 25px;
-  border-radius:50px;
-  background:#ff4f9a;
-  color:white;
-  font-size:1rem;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:25px;
-  box-shadow:0 8px 30px #ff4f9a55;
-}
-
-button:active{
-  transform:scale(.96);
-}
-
-/* INTRO */
-#intro{
-  background:
-    radial-gradient(circle at top,#6d174d,#0d0614 55%);
-}
-
-.intro-small{
-  color:#ff9fc8;
-  font-size:1.1rem;
-  margin-bottom:15px;
-}
-
-/* MAIN */
-#main{
-  display:none;
-}
-
-.card{
-  background:#ffffff0d;
-  border:1px solid #ffffff18;
-  border-radius:25px;
-  padding:30px 20px;
-  margin:25px 0;
-  backdrop-filter:blur(10px);
+    color:#f5e6f0;
+    font-size:1.03rem;
 }
 
 .date{
-  color:#ff91c0;
-  font-size:1.2rem;
-  letter-spacing:4px;
+    color:#ff9fc8;
+    letter-spacing:4px;
+    font-weight:bold;
+    margin:15px 0 20px;
 }
 
-/* PHOTOS */
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-top:25px;
+/* CARDS */
+
+.card{
+    background:#ffffff10;
+    border:1px solid #ffffff1c;
+    border-radius:28px;
+    padding:25px;
+    margin:20px auto;
+    max-width:760px;
+    box-shadow:0 20px 60px #0005;
+    backdrop-filter:blur(12px);
 }
+
+/* BUTTONS */
+
+.btnrow{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.btn{
+    border:1px solid #ffffff25;
+    background:#ffffff12;
+    color:white;
+    padding:13px 21px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 8px 25px #0003;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn:active{
+    transform:scale(.95);
+}
+
+.primary{
+    background:linear-gradient(135deg,#ff4f9a,#a83df5);
+    border:none;
+}
+
+/* PHOTO */
 
 .photo{
-  aspect-ratio:1/1;
-  border-radius:18px;
-  overflow:hidden;
-  background:#24152d;
-  border:1px dashed #ff6eaa;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#ff9fc8;
-  font-weight:bold;
-  padding:10px;
+    width:100%;
+    max-width:390px;
+    aspect-ratio:1/1;
+    margin:18px auto;
+    border-radius:25px;
+    overflow:hidden;
+    border:1px dashed #ff79b2;
+    background:#24152d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffafd0;
+    font-weight:bold;
 }
 
 .photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* PHOTO GRID */
+
+.photo-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    max-width:720px;
+    margin:20px auto;
+}
+
+.photo-grid .photo{
+    margin:0;
+    max-width:none;
 }
 
 /* LETTER */
+
 .letter{
-  text-align:left;
-  background:#ffffff0b;
-  padding:30px;
-  border-radius:25px;
-  border:1px solid #ffffff15;
+    text-align:left;
+    background:#fff9;
+    color:#32172c;
+    padding:27px;
+    border-radius:27px;
+    max-width:760px;
+    margin:auto;
 }
 
 .letter p{
-  margin-bottom:18px;
+    color:#43283d;
+    margin-bottom:15px;
 }
 
-/* SPORT */
-.sport{
-  display:grid;
-  gap:12px;
-  margin-top:25px;
+.letter strong{
+    color:#a51e67;
 }
 
-.sport div{
-  background:#ffffff0b;
-  padding:15px;
-  border-radius:15px;
-  text-align:left;
-}
-
-/* FINAL */
-#final{
-  background:
-    radial-gradient(circle at center,#72154d,#0d0614 65%);
-}
-
-.final-text{
-  color:#ffb1d0;
-  font-size:1.15rem;
-}
-
-/* FLOATING HEARTS */
-.heart{
-  position:fixed;
-  bottom:-30px;
-  font-size:20px;
-  pointer-events:none;
-  animation:up 5s linear forwards;
-  z-index:999;
-}
-
-@keyframes up{
-  to{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
-  }
-}
-
-@media(max-width:600px){
-  section{
-    padding:60px 15px;
-  }
-
-  .letter{
-    padding:22px;
-  }
-
-  .photo-grid{
-    gap:10px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- INTRO -->
-<section id="intro">
-  <div class="container">
-
-    <div class="intro-small">A little something for you... 👀</div>
-
-    <h1>Hey, Keerthu... 👀</h1>
-
-    <p>
-      I made something for you.<br>
-      And no... it's not just a birthday wish. 😂
-    </p>
-
-    <button onclick="openGift()">TAP TO OPEN ❤️</button>
-
-  </div>
-</section>
-
-
-<!-- MAIN WEBSITE -->
-<div id="main">
-
-<!-- BIRTHDAY -->
-<section>
-  <div class="container">
-
-    <h1>HAPPY BIRTHDAY<br>KEERTHU ❤️</h1>
-
-    <div class="date">19 • 10 • 2026</div>
-
-    <div class="card">
-      <p>
-        One more year of you being you...
-        and one more year of me tolerating you. 😂
-      </p>
-    </div>
-
-    <div class="photo">
-      <img src="photos/photo1.jpg"
-           onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 1<br>ADD YOUR PHOTO';">
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ONE YEAR -->
-<section>
-  <div class="container">
-
-    <h2>ONE YEAR OF US 🫂</h2>
-
-    <div class="date">
-      15 OCTOBER 2025 → 15 OCTOBER 2026
-    </div>
-
-    <div class="card">
-      <p>
-        365-ish days of friendship.<br>
-        Countless fights.<br>
-        Too many arguments.<br>
-        Several cold wars.<br>
-        And somehow... we're still here. 😂❤️
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- CHAOS -->
-<section>
-  <div class="container">
-
-    <h2>OUR CHAOTIC ARCHIVE 😂</h2>
-
-    <div class="photo-grid">
-
-      <div class="photo">
-        <img src="photos/photo2.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 2';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo3.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 3';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo4.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 4';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo5.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 5';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo6.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 6';">
-      </div>
-
-    </div>
-
-    <div class="card">
-      <p>
-        We were definitely normal here. 💀<br><br>
-        Another completely unnecessary fight. 😭<br><br>
-        Serious situation. Zero seriousness. 😂<br><br>
-        Don't ask what happened before this.<br><br>
-        Certified chaos.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- SOFT MOMENTS -->
-<section>
-  <div class="container">
-
-    <h2>BUT BETWEEN ALL THAT CHAOS... 🥹</h2>
-
-    <div class="card">
-      <p>
-        There are moments that don't need a caption. ❤️
-      </p>
-      <br>
-      <p>
-        Some people just become special without you
-        realizing exactly when it happened.
-      </p>
-    </div>
-
-    <div class="photo-grid">
-
-      <div class="photo">
-        <img src="photos/photo7.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 7';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo8.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 8';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo9.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 9';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo10.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 10';">
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FAVOURITE SPORT -->
-<section>
-  <div class="container">
-
-    <h2>OUR FAVOURITE SPORT 💀</h2>
-
-    <div class="sport">
-
-      <div>🥇 Fighting</div>
-      <div>🥈 Getting Angry</div>
-      <div>🥉 Not Talking</div>
-      <div>🏅 Cold War</div>
-      <div>🏆 Coming Back Like Nothing Happened</div>
-
-    </div>
-
-    <button onclick="fight()">
-      START ANOTHER FIGHT 💀
-    </button>
-
-    <div id="fightResult"></div>
-
-  </div>
-</section>
-
-
-<!-- MEMORY WALL -->
-<section>
-  <div class="container">
-
-    <h2>A LITTLE PIECE OF OUR CHAOS ❤️</h2>
-
-    <div class="photo-grid">
-
-      <div class="photo">
-        <img src="photos/photo11.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 11';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo12.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 12';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo13.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 13';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo14.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 14';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo15.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 15';">
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- LETTER -->
-<section>
-  <div class="container">
-
-    <h2>A LITTLE SOMETHING FOR YOU 💌</h2>
-
-    <div class="letter">
-
-      <p>Keerthu,</p>
-
-      <p>
-        You were special then.<br>
-        You're special now.<br>
-        And you'll be special forever. ❤️
-      </p>
-
-      <p>
-        Even if there are days when we don't talk...
-        even if we stay away from each other...
-        even if we pretend we're strangers...
-        I don't think that changes what you mean to me.
-      </p>
-
-      <p>
-        And if you ever come closer again,
-        I don't think I'll need much time to feel comfortable with you.
-      </p>
-
-      <p>
-        I'll still tease you.<br>
-        I'll still annoy you.<br>
-        I'll still try to make you laugh.
-      </p>
-
-      <p>
-        Basically... I'll still be me with you. ❤️
-      </p>
-
-      <p>
-        Maybe our friendship isn't always perfect,
-        but it's real.
-      </p>
-
-      <p>
-        No matter how many silent days we have,
-        I don't want you to ever think that you stopped
-        being special to me.
-      </p>
-
-      <p>
-        Happy Birthday, Keerthu. ❤️
-      </p>
-
-      <p>
-        Stay the same...
-        except maybe reduce the fights a little. 😂
-      </p>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FINAL PHOTOS -->
-<section>
-  <div class="container">
-
-    <h2>20 LITTLE FRAMES OF US 📸</h2>
-
-    <p>Now imagine how many more we still need. 👀</p>
-
-    <div class="photo-grid">
-
-      <div class="photo">
-        <img src="photos/photo16.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 16';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo17.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 17';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo18.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 18';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo19.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 19';">
-      </div>
-
-      <div class="photo">
-        <img src="photos/photo20.jpg"
-        onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 20';">
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- PROMISE -->
-<section>
-  <div class="container">
-
-    <h2>ONE THING ❤️</h2>
-
-    <div class="card">
-
-      <p>
-        No matter how many times we fight...
-      </p>
-
-      <p>
-        No matter how many cold wars we have.
-      </p>
-
-      <p>
-        No matter how long we stay strangers.
-      </p>
-
-      <br>
-
-      <p>
-        Some people don't become less special
-        just because you stop talking to them. ❤️
-      </p>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FINAL -->
-<section id="final">
-  <div class="container">
-
-    <h1>HAPPY BIRTHDAY,<br>KEERTHU ❤️</h1>
-
-    <h2>ONE YEAR OF US 🫂</h2>
-
-    <p class="final-text">
-      AND MANY MORE CHAOTIC YEARS TO COME...
-    </p>
-
-    <div class="photo" style="margin:30px auto;max-width:500px;">
-      <img src="photos/photo20.jpg"
-      onerror="this.style.display='none';this.parentElement.innerHTML='📸 PHOTO 20';">
-    </div>
-
-    <button onclick="toggleMusic()">
-      🎵 PLAY OUR SONG
-    </button>
-
-    <audio id="music" loop>
-      <source src="music/birthday-song.mp3" type="audio/mpeg">
-    </audio>
-
-  </div>
-</section>
-
-</div>
-
-
-<script>
-
-function openGift(){
-
-  document.getElementById("intro").style.display="none";
-
-  document.getElementById("main").style.display="block";
-
-  window.scrollTo(0,0);
-
-  createHearts();
-}
-
-
-function createHearts(){
-
-  setInterval(function(){
-
-    const heart=document.createElement("div");
-
-    heart.className="heart";
-
-    heart.innerHTML=["❤️","💗","💕","💖","✨"][Math.floor(Math.random()*5)];
-
-    heart.style.left=Math.random()*100+"vw";
-
-    heart.style.animationDuration=(3+Math.random()*3)+"s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-      heart.remove();
-    },6000);
-
-  },500);
-
-}
-
-
-function fight(){
-
-  document.getElementById("fightResult").innerHTML=
-  "<div class='card'><h2>ERROR 404 💀</h2><p>PEACE NOT FOUND.</p></div>";
-
-}
-
-
-function toggleMusic(){
-
-  const music=document.getElementById("music");
-
-  if(music.paused){
-    music.play();
-  }else{
-    music.pause();
-  }
-
-}
-
-</script>
-
-</body>
-  </html>
+/* EMOJIS */
+
+.bigemoji{
+    font-size:5rem;
+    animation:float 2s ease-in-out
